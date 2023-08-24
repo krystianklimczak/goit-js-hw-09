@@ -36,3 +36,15 @@ stopBtn.addEventListener('click', () => {
   clearInterval(timerId);
   disablingStopBtn();
 });
+
+// inline styles
+body.style.display = 'flex';
+body.style.flexDirection = 'column';
+body.style.alignItems = 'center';
+// body.style.justifyItems = 'center';
+body.style.gap = '15px';
+
+const btn = document.querySelectorAll('button');
+btn.forEach(e => {
+  e.style.padding = '5px 15px';
+});
