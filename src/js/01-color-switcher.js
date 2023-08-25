@@ -1,7 +1,6 @@
 const startBtn = document.querySelector('button[data-start]');
 const stopBtn = document.querySelector('button[data-stop]');
 const body = document.querySelector('body');
-const btn = document.querySelectorAll('button');
 let timerId = null;
 const delay = 1000;
 
@@ -45,6 +44,7 @@ stopBtn.addEventListener('click', () => {
   disablingStopBtn();
 });
 
+// NIEISTOTNA CZĘŚĆ KODU
 // add some inline styles (unnessesary)
 body.style.display = 'flex';
 body.style.flexDirection = 'column';
@@ -54,6 +54,7 @@ body.style.margin = 'auto';
 body.style.gap = '15px';
 body.style.height = '100vh';
 
+const btn = document.querySelectorAll('button');
 btn.forEach(e => {
   e.style.padding = '15px 25px';
 });
