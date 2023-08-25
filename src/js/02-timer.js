@@ -1,19 +1,20 @@
 import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
+import 'flatpickr/dist/flatpickr.min.css';
 
-let timeLeft;
-let timerId = null;
-const delay = 1000;
-let selectedDate;
-let isTimeChosen = false;
 const datePicker = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('button[data-start]');
 const days = document.querySelector('span[data-days]');
 const hours = document.querySelector('span[data-hours]');
 const minutes = document.querySelector('span[data-minutes]');
 const seconds = document.querySelector('span[data-seconds]');
-const isZero = currentValue => currentValue === 0;
+
+let timeLeft;
+let timerId = null;
+let selectedDate;
+let isTimeChosen = false;
+const delay = 1000;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -35,6 +36,10 @@ const options = {
 
 startBtn.disabled = true;
 flatpickr(datePicker, options);
+
+function checkIfZero(value) {
+  return value === 0;
+}
 
 function convertMs(ms) {
   const second = 1000;
@@ -66,7 +71,7 @@ startBtn.addEventListener('click', e => {
   settingTime();
   timerId = setInterval(() => {
     settingTime();
-    if (Object.values(timeLeft).every(isZero)) {
+    if (Object.values(timeLeft).every(checkIfZero)) {
       clearInterval(timerId);
     }
   }, delay);
