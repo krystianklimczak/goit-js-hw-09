@@ -6,6 +6,7 @@ let timeLeft;
 let timerId = null;
 const delay = 1000;
 let selectedDate;
+let isTimeChosen = false;
 const datePicker = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('button[data-start]');
 const days = document.querySelector('span[data-days]');
@@ -19,12 +20,15 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] < new Date()) {
+    if (selectedDates[0] < new Date() && !isTimeChosen) {
       Notiflix.Notify.failure('Please choose a date in the future');
-    } else {
+    } else if (!isTimeChosen) {
       startBtn.disabled = false;
       selectedDate = selectedDates[0];
-      flatpickr(datePicker);
+    } else {
+      Notiflix.Notify.success(
+        'Timer is running, if u want change time, refresh page'
+      );
     }
   },
 };
@@ -58,6 +62,7 @@ function settingTime() {
 }
 
 startBtn.addEventListener('click', e => {
+  isTimeChosen = true;
   settingTime();
   timerId = setInterval(() => {
     settingTime();
@@ -65,4 +70,5 @@ startBtn.addEventListener('click', e => {
       clearInterval(timerId);
     }
   }, delay);
+  startBtn.disabled = true;
 });
