@@ -85,7 +85,7 @@ startBtn.addEventListener('click', e => {
       // Nieobowiązkowy dodatek do zadania z nudów w trakcie oczekiwania na akceptację
       timerId = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
-        timerBox.style.transform = `rotate(${deg}deg)`;
+        stopbtn.style.transform = `rotate(${deg}deg)`;
         deg += 2;
         if (deg === 360) {
           deg = 0;
