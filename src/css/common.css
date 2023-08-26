@@ -69,10 +69,16 @@ img {
   align-items: center;
   justify-content: center;
   gap: 15px;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 button {
   padding: 15px;
   font-size: 15px;
   font-weight: bold;
+}
+
+.invisible {
+  display: none;
 }
