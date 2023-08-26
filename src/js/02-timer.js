@@ -12,7 +12,6 @@ const seconds = document.querySelector('span[data-seconds]');
 let timeLeft;
 let timerId = null;
 let selectedDate;
-let isTimeChosen = false;
 const delay = 1000;
 
 const options = {
@@ -23,13 +22,9 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] <= new Date() && !isTimeChosen) {
       Notiflix.Notify.failure('Please choose a date in the future');
-    } else if (!isTimeChosen) {
+    } else {
       startBtn.disabled = false;
       selectedDate = selectedDates[0];
-    } else {
-      Notiflix.Notify.success(
-        'Timer is running, if u want change time, refresh page'
-      );
     }
   },
 };
@@ -72,11 +67,9 @@ function getRandomHexColor() {
 
 startBtn.addEventListener('click', e => {
   datePicker.disabled = true;
-  isTimeChosen = true;
   let isStopVisible = false;
   let deg = 0;
   const stopbtn = document.querySelector('.invisible');
-  const timerBox = document.querySelector('.timerBox');
   settingTime();
   timerId = setInterval(() => {
     settingTime();
