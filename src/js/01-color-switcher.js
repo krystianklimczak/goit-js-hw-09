@@ -43,18 +43,3 @@ stopBtn.addEventListener('click', () => {
   clearInterval(timerId);
   disablingStopBtn();
 });
-
-// NIEISTOTNA CZĘŚĆ KODU
-// add some inline styles (unnessesary)
-body.style.display = 'flex';
-body.style.flexDirection = 'column';
-body.style.justifyContent = 'center';
-body.style.alignItems = 'center';
-body.style.margin = 'auto';
-body.style.gap = '15px';
-body.style.height = '100vh';
-
-const btn = document.querySelectorAll('button');
-btn.forEach(e => {
-  e.style.padding = '15px 25px';
-});

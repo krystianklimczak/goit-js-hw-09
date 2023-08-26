@@ -17,6 +17,14 @@ img {
   max-width: 100%;
 }
 
+.color-switcher {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
 .timer {
   font-size: 20px;
   display: flex;
@@ -34,4 +42,37 @@ img {
 
 .label {
   font-size: 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form input {
+  display: flex;
+}
+
+.form button {
+  margin-top: 30px;
+  padding: 15px;
+  font-size: 15px;
+
+  font-weight: bold;
+}
+
+.timerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+button {
+  padding: 15px;
+  font-size: 15px;
+  font-weight: bold;
 }
