@@ -61,40 +61,13 @@ function settingTime() {
   seconds.innerHTML = addLeadingZero(timeLeft.seconds);
 }
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-
 startBtn.addEventListener('click', e => {
   datePicker.disabled = true;
-  let isStopVisible = false;
-  let deg = 0;
-  const stopbtn = document.querySelector('.invisible');
   settingTime();
   timerId = setInterval(() => {
     settingTime();
     if (Object.values(timeLeft).every(checkIfZero)) {
       clearInterval(timerId);
-      // Nieobowiązkowy dodatek do zadania z nudów w trakcie oczekiwania na akceptację
-      timerId = setInterval(() => {
-        document.body.style.backgroundColor = getRandomHexColor();
-        stopbtn.style.transform = `rotate(${deg}deg)`;
-        deg += 2;
-        if (deg === 360) {
-          deg = 0;
-        }
-
-        if (!isStopVisible) {
-          stopbtn.classList.remove('invisible');
-          isStopVisible = true;
-        }
-        stopbtn.addEventListener('click', e => {
-          clearInterval(timerId);
-          stopbtn.classList.add('invisible');
-          location.reload();
-        });
-      }, 50);
-      // Nieobowiązkowy dodatek do zadania z nudów w trakcie oczekiwania na akceptację
     }
   }, delay);
   startBtn.disabled = true;
